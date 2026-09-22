@@ -20,11 +20,6 @@ spec:
           image: ghcr.io/edmariosantos92/cp2-app:2385d85
           ports:
             - containerPort: 3000
-          env:
-            - name: APP_VERSION
-              value: "1.0.0"
-            - name: APP_COLOR
-              value: "#1e293b"
           readinessProbe:
             httpGet:
               path: /health
