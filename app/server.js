@@ -4,7 +4,7 @@ const { version: pkgVersion } = require('./package.json');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const APP_VERSION = process.env.APP_VERSION || pkgVersion;
-const APP_COLOR = process.env.APP_COLOR || '#1e293b';
+const APP_COLOR = process.env.APP_COLOR || '#0f766e';
 const APP_TITLE = process.env.APP_TITLE || 'CP2 - CI/CD com GitHub Actions e Argo CD';
 
 app.get('/', (req, res) => {
