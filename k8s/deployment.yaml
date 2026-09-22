@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cp2-app
+  namespace: cp2-app
+  labels:
+    app: cp2-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cp2-app
+  template:
+    metadata:
+      labels:
+        app: cp2-app
+    spec:
+      containers:
+        - name: cp2-app
+          image: ghcr.io/edmariosantos92/cp2-app:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: APP_VERSION
+              value: "1.0.0"
+            - name: APP_COLOR
+              value: "#1e293b"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
