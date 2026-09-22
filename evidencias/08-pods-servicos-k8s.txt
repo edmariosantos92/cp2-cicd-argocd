@@ -1,0 +1,7 @@
+$ kubectl get pods -n cp2-app -o wide
+NAME                       READY   STATUS    RESTARTS   AGE    IP            NODE       NOMINATED NODE   READINESS GATES
+cp2-app-755456987d-t7ndf   1/1     Running   0          8m2s   10.244.0.12   minikube   <none>           <none>
+
+$ kubectl get svc -n cp2-app
+NAME      TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+cp2-app   NodePort   10.100.2.211   <none>        80:30371/TCP   11m
